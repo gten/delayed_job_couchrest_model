@@ -1,6 +1,6 @@
 module Delayed
   module Backend
-    module CouchRestModel
+    module CouchrestModel
       class Job < ::CouchRest::Model::Base
         include Delayed::Backend::Base
         use_database 'delayed_jobs'
