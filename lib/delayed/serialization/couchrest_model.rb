@@ -1,4 +1,4 @@
-class CouchRest::ExtendedDocument
+class CouchRest::Model::Base
   yaml_as "tag:ruby.yaml.org,2002:CouchRest"
   
   def reload
@@ -13,9 +13,9 @@ class CouchRest::ExtendedDocument
   end
   def to_yaml_properties
     ['@id']
-  end  
+  end
   def ==(other)
-    if other.is_a? ::CouchRest::ExtendedDocument
+    if other.is_a? ::CouchRest::Model::Base
       self['_id'] == other['_id']
     else
       super
