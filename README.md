@@ -1,11 +1,11 @@
-# delayed_job CouchRest backend
+# delayed_job couchrest_model backend
 
 ## Installation
 
 Add the gems to your Gemfile:
 
-    gem 'delayed_job', '2.1.0.pre2'
-    gem 'delayed_job_couch_rest', '1.0.0.rc'
+    gem 'delayed_job'
+    gem 'delayed_job_couchrest_model'
   
 Add this in an initializer:
 

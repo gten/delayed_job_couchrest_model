@@ -1,6 +1,6 @@
 source 'http://rubygems.org'
-gem 'delayed_job', :git => 'git://github.com/collectiveidea/delayed_job.git'
-gem 'couchrest_extended_document'
+gem 'delayed_job'
+gem 'couchrest_model'
 
 group :development do
   gem 'rspec'

@@ -1,9 +1,9 @@
 module Delayed
   module Backend
-    module CouchRest
-      class Job < ::CouchRest::ExtendedDocument
+    module CouchRestModel
+      class Job < ::CouchRest::Model::Base
         include Delayed::Backend::Base
-        use_database ::CouchRest::Server.new.database('delayed_job')
+        use_database 'delayed_jobs'
 
         property :handler
         property :last_error
@@ -19,12 +19,12 @@ module Delayed
 
         view_by(:failed_at, :locked_by, :run_at,
                 :map => "function(doc){" +
-                "          if(doc['couchrest-type'] == 'Delayed::Backend::CouchRest::Job') {" +
+                "          if(doc['type'] == 'Delayed::Backend::CouchRest::Job') {" +
                 "            emit([doc.failed_at, doc.locked_by, doc.run_at], null);}" +
                 "        }")
         view_by(:failed_at, :locked_at, :run_at,
                 :map => "function(doc){" +
-                "          if(doc['couchrest-type'] == 'Delayed::Backend::CouchRest::Job') {" +
+                "          if(doc['type'] == 'Delayed::Backend::CouchRest::Job') {" +
                 "            emit([doc.failed_at, doc.locked_at, doc.run_at], null);}" +
                 "        }")
 
