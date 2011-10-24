@@ -17,8 +17,10 @@ tmtags
 *.swp
 
 ## PROJECT::GENERAL
+.project
 coverage
 rdoc
 pkg
 
 ## PROJECT::SPECIFIC
+*.gem
