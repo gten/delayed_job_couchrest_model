@@ -19,16 +19,16 @@ module Delayed
 
         view_by(:failed_at, :locked_by, :run_at,
                 :map => "function(doc){" +
-                "          if(doc['type'] == 'Delayed::Backend::CouchRest::Job') {" +
+                "          if(doc['type'] == 'Delayed::Backend::CouchrestModel::Job') {" +
                 "            emit([doc.failed_at, doc.locked_by, doc.run_at], null);}" +
                 "        }")
         view_by(:failed_at, :locked_at, :run_at,
                 :map => "function(doc){" +
-                "          if(doc['type'] == 'Delayed::Backend::CouchRest::Job') {" +
+                "          if(doc['type'] == 'Delayed::Backend::CouchrestModel::Job') {" +
                 "            emit([doc.failed_at, doc.locked_at, doc.run_at], null);}" +
                 "        }")
 
-        def self.db_time_now; Time.now; end    
+        def self.db_time_now; Time.now.utc; end
         def self.find_available(worker_name, limit = 5, max_run_time = ::Delayed::Worker.max_run_time)
           ready = ready_jobs
           mine = my_jobs worker_name
