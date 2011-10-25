@@ -4,7 +4,7 @@ Gem::Specification.new do |s|
   s.name              = 'delayed_job_couchrest_model'
   s.summary           = 'A CouchRest::Model backend for delayed_job'
   s.description       = 'A CouchRest::Model backend for delayed_job'
-  s.version           = '0.0.6'
+  s.version           = '0.0.7'
   s.authors           = ['GTen']
   s.date              = Date.today.to_s
   s.extra_rdoc_files  = ["LICENSE", "README.md"]
