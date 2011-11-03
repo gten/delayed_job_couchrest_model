@@ -3,7 +3,8 @@ module Delayed
     module CouchrestModel
       class Job < ::CouchRest::Model::Base
         include Delayed::Backend::Base
-        use_database 'delayed_jobs'
+        # Add the following in an initializer to set the database name
+        # Delayed::Backend::CouchrestModel::Job.use_database 'delayed_jobs'
 
         property :handler
         property :last_error
